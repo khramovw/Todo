@@ -1,9 +1,9 @@
 <div class="all-task-wrap" *ngIf="todoes?.length; else noTodoes">
   <!-- one task start-->
   <div id="{{todo.id}}" class="task-section" *ngFor="let todo of todoes" >
-    <div class="task open">
+    <div class="task" [ngClass]="taskHeadClass" taskAcardion>
       <div class="to-do-time">{{ todo.time }}</div>
-      <div class="task-header flex-container">
+      <div class="task-header flex-container" >
         <span class="icon icon-arrow"></span>
         <div class="short-task-text">{{ todo.header }}</div>
         <span class="icon icon-cancel" routerLink="/del/{{todo.id}}"></span>

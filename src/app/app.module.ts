@@ -19,6 +19,8 @@ import { TodoComponent } from './components/todo/todo.component';
 import { TodoDelComponent } from './components/todo-del/todo-del.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 
+// Directive
+import {TaskAcardionDirective} from "./task-acardion.directive";
 
 // Modules
 import { AppRoutingModule } from './app-routing/app-routing.module';
@@ -26,6 +28,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 // Services
 import { TodoesService } from './services/todoes.service';
 import { AuthService } from './services/auth.service';
+
 
 
 @NgModule({
@@ -39,7 +42,8 @@ import { AuthService } from './services/auth.service';
     NavBarComponent,
     TodoComponent,
     TodoDelComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    TaskAcardionDirective
   ],
   imports: [
     BrowserModule,
