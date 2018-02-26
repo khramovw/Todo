@@ -1,0 +1,202 @@
+.all-task-wrap {
+  padding: 4em 0;
+  position: relative; }
+.all-task-wrap:before {
+  content: '';
+  display: inline-block;
+  border: 2px dashed #00a2f4;
+  position: absolute;
+  top: 4em;
+  left: 1.8em;
+  bottom: 0; }
+
+.task-section {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: start;
+  /*-webkit-align-items: start;*/
+  -ms-flex-align: start;
+  align-items: start; }
+.task-section + .task-section{
+  margin-top: 24px;
+}
+@media (max-width: 768px) {
+  .task-section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: column wrap;
+    -ms-flex-flow: column wrap;
+    flex-flow: column wrap; } }
+.task-section .task {
+  width: 100%;
+  padding-left: 5.4em;
+  position: relative;
+  max-width: -webkit-calc( 600px + 5.4em);
+  max-width: calc( 600px + 5.4em); }
+@media (max-width: 768px) {
+  .task-section .task {
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+    -ms-flex-order: 2;
+    order: 2; } }
+.task-section .task.open .task-content-wrap {
+  display: block; }
+.task-section .task.open .task-header {
+  -webkit-border-radius: 1em 1em 0 0;
+  border-radius: 1em 1em 0 0; }
+.task-section .task.success .task-header {
+  background: #7cbb00; }
+.task-section .task.worning .task-header {
+  background: #ff5201; }
+.task-section .task .task-header {
+  padding: 1.5em;
+  background: #ffbb00;
+  -webkit-border-radius: 1em;
+  border-radius: 1em;
+  color: #fff;
+  font-family: 'sf_ui_textlight';
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between; }
+.task-section .task .task-header .short-task-text {
+  width: 80%;
+  font-size: 1.4em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+.task-section .task .task-header .icon-arrow {
+  font-size: .6em; }
+.task-section .task .task-header .icon-cancel {
+  font-size: 2em;}
+.task-section .task .task-content-wrap {
+  display: none;
+  padding: 1.5em;
+  -webkit-border-radius: 0 0 1em 1em;
+  border-radius: 0 0 1em 1em;
+  background: #fff;
+  color: #404040;
+  font-family: 'sf_ui_textlight';
+  font-size: 1.4em;
+  line-height: 1.3em;
+  -webkit-box-shadow: 0px 5px 16px 5px rgba(0, 2, 3, 0.2);
+  box-shadow: 0px 5px 16px 5px rgba(0, 2, 3, 0.2); }
+.task-section .task .task-content-wrap > * + * {
+  margin-top: 1em; }
+.task-section .task .task-content-wrap .task-icon {
+  font-size: 1.43em;
+  width: 20px; }
+.task-section .task .task-content-wrap .time-row {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center; }
+.task-section .task .task-content-wrap .time-row .time {
+  width: 90%;
+  padding-left: 5px; }
+.task-section .task .task-content-wrap .time-row .task-icon > .icon-bell-active {
+  color: #00a2f4; }
+.task-section .task .task-content-wrap .task-text-row .text {
+  width: 90%;
+  white-space: pre-wrap;
+  padding-left: 5px; }
+.task-section .task .task-content-wrap .task-check-row {
+  width: 90%; }
+.task-section .task .task-content-wrap .task-check-row input[type="checkbox"] {
+  display: none; }
+.task-section .task .task-content-wrap .task-check-row input[type="checkbox"] + label {
+  opacity: 0.8;
+  font-size: 15px; }
+.task-section .task .task-content-wrap .task-check-row input[type="checkbox"] + label::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ff5201;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background: #FFF;
+  margin-right: 10px; }
+.task-section .task .task-content-wrap .task-check-row input[type="checkbox"]:checked + label::before {
+  background: #fff url(../../../assets/img/check.svg);
+  background-repeat: no-repeat;
+  border-color: transparent; }
+.task-section .task .task-content-wrap .task-edit-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  margin-right: 15px; }
+.task-section .task .task-content-wrap .task-edit-row .icon-edit {
+  display: block; }
+.task-section .task-status {
+  display: none;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin: 10px 0 0 70px; }
+@media (max-width: 768px) {
+  .task-section .task-status {
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1; } }
+.task-section .task-status .status-icon {
+  font-size: 3.5em;
+  margin-right: 1em; }
+@media (max-width: 768px) {
+  .task-section .task-status .status-icon {
+    font-size: 2em; } }
+.task-section .task-status p {
+  font-size: 3em; }
+@media (max-width: 768px) {
+  .task-section .task-status p {
+    font-size: 2em; } }
+.task-section .color-worning {
+  color: #ff5201; }
+.task-section .color-success {
+  color: #7cbb00; }
+.task-section .status-on {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+.to-do-time {
+  height: 3.3333em;
+  width: 3.3333em;
+  font-size: 1.2em;
+  background: #00a2f4;
+  color: #fff;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center; }

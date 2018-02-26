@@ -1,0 +1,68 @@
+<app-nav-bar></app-nav-bar>
+<!-- task edit -->
+<div class="overlay"></div>
+<div id="{{todo.id}}" class="edit-task">
+  <form #todoEditForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="container">
+      <div class="title">
+        <input
+          type="text"
+          name="header"
+          id="head-text-{{todo.id}}"
+          [(ngModel)]="todo.header"
+          #todoHeader="ngModel"
+          maxlength="70"
+          required
+        >
+        <label>Редактировать задачу</label>
+        <span class="count">0{{ 70 - todo.header.length }}</span>
+      </div>
+
+      <div class="closes-edit-task" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <span></span>
+        <span></span>
+      </div>
+      <div class="input-group flex-container">
+        <div class="task-bell">
+          <span class="icon icon-bell"></span>
+          <span>Оповестить за</span>
+        </div>
+        <input
+          type="time"
+          name="time"
+          id="task-time-{{todo.id}}"
+          [(ngModel)]="todo.time"
+          #todoTime="ngModel">
+
+        <input
+          type="date"
+          name="date"
+          id="task-date-{{todo.id}}"
+          [(ngModel)]="todo.date"
+          #todoData="ngModel">
+
+      </div>
+      <div class="input-group">
+        <div class="textarea-wrap">
+          <textarea
+            name="text"
+            id="task-text-{{todo.id}}"
+            [(ngModel)]="todo.text"
+            #todoText="ngModel"
+            maxlength="1000"
+            required
+          ></textarea>
+          <label for="task-text-{{todo.id}}">Ваша задача</label>
+          <div class="symbol-count">
+            <span class="count">0{{ 1000 - todo.text.length }}</span>
+            <span class="max-count">/1000</span>
+          </div>
+        </div>
+      </div>
+      <div class="input-group">
+        <button class="add-task-btn" type="submit">Добавить</button>
+      </div>
+    </div>
+  </form>
+</div>
+<!-- task end -->

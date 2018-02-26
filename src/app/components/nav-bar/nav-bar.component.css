@@ -1,0 +1,103 @@
+/* HEADER START */
+.flex-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row; }
+
+.fixed-to-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: #fff; }
+
+.icon-arrow, .icon-cancel, .icon-edit, label, input {
+  cursor: pointer; }
+
+.container {
+  max-width: 1230px;
+  margin: 0 auto;
+  padding: 0 15px; }
+
+.header {
+  background: #00a2f4;
+  padding: 35px 0;
+  height: 100px; }
+
+.header .flex-container {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between; }
+
+.add-task {
+  width: 6em;
+  height: 6em;
+  background: #ffbb00;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  font-size: 1em;
+  -webkit-transform: translateY(55%);
+  -ms-transform: translateY(55%);
+  transform: translateY(55%);
+}
+
+.add-task a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-task span {
+  display: inline-block;
+  width: 32px;
+  height: 4px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background: #fff;
+  position: absolute;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  /*top: 50%;*/
+  /*left: 24%; */
+}
+
+.add-task span + span {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg); }
+
+.user-nav {
+  font-size: 3em;
+  color: #fff; }
+
+.user-nav a + a {
+  margin-left: 1.2em; }
+
+.toggle-task-type {
+  padding: 5em 0px; }
+
+.toggle-task-type .toggle-task-list {
+  color: #bebebe;
+  font-size: 1.8em;
+  font-family: 'sf_ui_textsemibold'; }
+
+.toggle-task-type .toggle-task-list > *.active {
+  color: #00a2f4; }
+
+.toggle-task-type .toggle-task-list > * + *::before {
+  content: '/';
+  display: inline-block;
+  margin-right: .3em;
+  color: #bebebe; }
+
+/* HEADER END */
+

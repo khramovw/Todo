@@ -1,0 +1,10 @@
+.task-day {
+  background: #00a2f4;
+  padding: 1em 2em;
+  color: #fff; }
+.task-day .day {
+  font-size: 3.6em;
+  font-family: 'sf_ui_displaybold'; }
+.task-day .month {
+  font-size: 1.8em; }
+
