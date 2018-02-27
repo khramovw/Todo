@@ -28,6 +28,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 // Services
 import { TodoesService } from './services/todoes.service';
 import { AuthService } from './services/auth.service';
+import { UidService } from "./services/uid.service";
 
 
 
@@ -53,7 +54,7 @@ import { AuthService } from './services/auth.service';
     AngularFireAuthModule,
     AppRoutingModule
   ],
-  providers: [ TodoesService, AuthService ],
+  providers: [ TodoesService, AuthService, UidService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
