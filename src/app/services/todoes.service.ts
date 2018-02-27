@@ -64,12 +64,22 @@ export class TodoesService {
     console.log(todo);
   }
 
-  getTodoDone(todoes, status) {
+  // getTodoDone(status, todoes: Observable<Task[]>) {
+  //   this.todoes.forEach((todo) => {
+  //     if( todo.done == status ){
+  //       console.log('todo.done',todo);
+  //       return todo;
+  //     }
+  //     // console.log('todo.done',todo);
+  //   });
+  // }
+
+  getTodoDoneClass(todoes, status) {
     todoes.forEach(todo => {
-      if( todo.done == status ){
+      if( todo.done == !status && todo.setTime < +( new Date()) ){
         return todo;
       }
-      console.log('todo.done',todo);
+      console.log('todo.done && date',todo);
     });
   }
 
@@ -83,7 +93,7 @@ export class TodoesService {
 
   }
 
-  getDateTimeToGMT(todoes) {
+  getDateTimeToGMT(todo) {
     // получаю дату и время в одной строке в GMT
     // for( let i = 0, max = todoes.length; i < max; i++) {
     //   var getdate = this.todoes[i].date.split('-'),
@@ -97,17 +107,18 @@ export class TodoesService {
     // }
 
     // обновляаю дату и время в setTime
-    // for( let i = 0, max = todoes.length; i < max; i++) {
-    //   var getdate = this.todoes[i].date.split('-'),
-    //       gettime = this.todoes[i].time.split(':'),
-    //       createformdate = +(new  Date(getdate[0], getdate[1], getdate[2], gettime[0], gettime[1]));
-    //   console.log(getdate[0], getdate[1], getdate[2], gettime[0], gettime[1]);
-    //
-    //   todoes[i].setTime = createformdate;
-    //   console.log(todoes[i]);
-    //
-    //   this.todoesService.updateTodo(todoes[i]);
-    // }
+
+      // var getdate = this.todo.date.split('-').reverse().join('-').split('-'),
+      //     gettime = this.todo.time.split(':');
+      // console.log(getdate);
+      // this.todo.setTime = +(new  Date(getdate[0], getdate[1], getdate[2], gettime[0], gettime[1]));
+      // console.log(getdate[0], getdate[1], getdate[2], gettime[0], gettime[1]);
+      //
+      // // this.todo.setTime = createformdate;
+      // console.log(this.todo);
+      //
+      // this.todoDocument.update(this.todo);
+
   }
 
 }

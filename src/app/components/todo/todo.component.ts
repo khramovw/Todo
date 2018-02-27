@@ -16,20 +16,21 @@ export class TodoComponent implements OnInit {
 
 
   todoes: Task[];
+  todo: Task;
 
-  todoDone: boolean = false;
+
   todoDate: string;
 
-  taskHeadClass: {
-    success: boolean,
-    worning: boolean
-  };
+  taskHeadClass = {};
+  todoDone: boolean = false;
+
+  dataNow = +(new Date());
 
   constructor( private todoesService: TodoesService ) {
 
     // Классы для хедера таска
     this.taskHeadClass = {
-      success: false,
+      success: this.todoDone,
       worning: false
     };
 
@@ -38,23 +39,18 @@ export class TodoComponent implements OnInit {
   ngOnInit() {
     // Получаю все таски
     this.todoesService.getTodoes().subscribe(todoes => {
-
       this.todoes = todoes;
 
-      // Получаю выполненные таски
-      this.todoesService.getTodoDone(todoes, this.todoDone);
-      this.todoesService.getSortBayDate(todoes, this.todoDate = "2018-02-01");
-
-      // // Классы для хедера таска
-      // this.taskHeadClass = {
-      //   succesOn: this.classSucces = false,
-      //   worningOn: this.classWorning = true,
-      // }
-
+      for( let i = 0; i < this.todoes.length; i ++ ) {
+        if( todoes[i].done ) {
+          console.log(todoes[i]);
+          this.todoDone = true;
+          // this.taskHeadClass.success = true;
+        }
+      }
     });
 
-    this.taskHeadClass.success = true;
-
   }
+
 
 }

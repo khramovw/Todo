@@ -1,4 +1,4 @@
-//
+
 // window.on('load', $('.icon-arrow').on('click', function taskAkardion(e) {
 //   console.log('icon-arrow');
 //   if (!(e.target).hasClass('icon-cancel')) {
@@ -17,4 +17,4 @@
 //
 //   }
 // }));
-//
+

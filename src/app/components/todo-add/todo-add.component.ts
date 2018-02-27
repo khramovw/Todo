@@ -53,7 +53,7 @@ export class TodoAddComponent implements OnInit {
       this.getdate = this.todo.date.split('-');           // от инпута с датой получаю строку и создаю масив
       this.gettime = this.todo.time.split(':'); // от инпута с временем получаю строку и создаю масив
       // собираю число в формате GMT
-      this.createformdate = +(new  Date(this.getdate[0], this.getdate[1], this.getdate[2], this.gettime[0], this.gettime[1]));
+      this.createformdate = +(new  Date(this.getdate[0], this.getdate[1]-1, this.getdate[2], this.gettime[0], this.gettime[1]));
       // записываю в setTime:
       this.todo.setTime = this.createformdate;
 

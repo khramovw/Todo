@@ -21,6 +21,9 @@ export class TodoEditComponent implements OnInit {
   @ViewChild("todoEditForm") form: any;
 
   id: string;
+  createformdate: any;
+  getdate: any;
+  gettime: any;
   todo: Task = {
     date: '',
     id: '',
@@ -52,8 +55,15 @@ export class TodoEditComponent implements OnInit {
 
     } else {
 
-      // Получение времени
-      // this.todo.date = Date.parse(`${this.form.value.date}:${this.form.value.time}`);
+      // получаю из ипутов дату и время и собираю в формате GMT и записываю в setTime:
+      this.getdate = this.todo.date.split('-');          // от инпута с датой получаю строку и создаю масив
+      this.gettime = this.todo.time.split(':'); // от инпута с временем получаю строку и создаю масив
+      // собираю число в формате GMT
+      this.createformdate = +(new  Date(this.getdate[0], this.getdate[1] - 1, this.getdate[2], this.gettime[0], this.gettime[1]));
+      // записываю в setTime:
+      this.todo.setTime = this.createformdate;
+
+      console.log(this.getdate);
 
       this.todoesServices.updateTodo(this.todo);
       this.router.navigate(['/']);
