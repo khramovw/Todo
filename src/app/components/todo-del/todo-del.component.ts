@@ -36,6 +36,7 @@ export class TodoDelComponent implements OnInit {
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
 
+
     this.todoesService.getTodo(this.id).subscribe( todo => {
       if ( todo ) {
         this.todo = todo;

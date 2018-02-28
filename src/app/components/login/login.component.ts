@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
@@ -12,6 +12,9 @@ export class LoginComponent implements OnInit {
 
   email: string;
   password: string;
+  user: string;
+
+  @ViewChild("todoForm") form: any;
 
   constructor(
     private authService: AuthService,
@@ -24,20 +27,18 @@ export class LoginComponent implements OnInit {
       if ( auth ) {
         this.router.navigate(['/']);
       }
-    })
+    });
 
   }
 
   onSubmit() {
     this.authService.login(this.email, this.password)
       .then( res => {
+        this.user = this.email;
         this.router.navigate(['/']);
       })
       .catch( err => {
         alert(err.message);
-      })
+      });
   }
-
-
-
 }

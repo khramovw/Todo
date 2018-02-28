@@ -14,8 +14,9 @@ import { Task } from "../../models/Task";
 })
 export class TodoListComponent implements OnInit {
 
+  todoes: Task[];
   todo: Task;
-  todoLength: any;
+
 
   id: string;
 
@@ -23,13 +24,19 @@ export class TodoListComponent implements OnInit {
 
   ngOnInit() {
 
+    // Получаю все таски
     this.todoesService.getTodoes().subscribe(todoes => {
-      console.log(todoes);
+      this.todoes = todoes;
 
+      // for( let i = 0; i < this.todoes.length; i ++ ) {
+      //   if( todoes[i].done ) {
+      //     console.log(todoes[i]);
+      //     this.todoDone = true;
+      //     // this.taskHeadClass.success = true;
+      //   }
+      // }
     });
 
-
   }
-
 
 }

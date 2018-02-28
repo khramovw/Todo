@@ -1,19 +1,20 @@
 import { Directive, HostBinding, HostListener } from "@angular/core";
 import {element} from "protractor";
+
 declare var jquery: any;
 declare var $: any;
 
 @Directive({
   selector: '[taskAcardion]'
 })
-export class TaskAcardionDirective{
+export class TaskAcardionDirective {
 
 
   @HostBinding('class.open') isOpened = false;
 
   @HostListener('click') onClick() {
     this.isOpened = !this.isOpened;
-    console.log('click acardion', $(this).find('.task-content-wrap'));
+    console.log('click acardion');
 
     // if (!$(this).hasClass('icon-cancel')) {
     //   var parentTask = $(this).closest('task');

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 // Models
 import { Task } from "../../models/Task";
@@ -14,8 +14,9 @@ import { TodoesService } from "../../services/todoes.service";
 })
 export class TodoComponent implements OnInit {
 
+  // получаю таски из todo-list
+  @Input() todoes: Task[];
 
-  todoes: Task[];
   todo: Task;
 
 
@@ -37,18 +38,6 @@ export class TodoComponent implements OnInit {
   }
 
   ngOnInit() {
-    // Получаю все таски
-    this.todoesService.getTodoes().subscribe(todoes => {
-      this.todoes = todoes;
-
-      for( let i = 0; i < this.todoes.length; i ++ ) {
-        if( todoes[i].done ) {
-          console.log(todoes[i]);
-          this.todoDone = true;
-          // this.taskHeadClass.success = true;
-        }
-      }
-    });
 
   }
 

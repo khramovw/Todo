@@ -1,6 +1,6 @@
 <div class="login">
   <div class="login-section">
-    <form (ngSubmit)="onSubmit()">
+    <form #todoForm="ngForm" (ngSubmit)="onSubmit()">
       <div class="login-input">
         <div class="login-icon">
           <span class="icon icon-account_circle-grey"></span>
@@ -23,7 +23,7 @@
         <input class="login-enter" type="submit" value="войти">
       </div>
       <div class="login-check">
-        <input type="checkbox" id="login-check">
+        <input type="checkbox" id="login-check" name="login" [(ngModel)]="login">
         <label for="login-check">Сохранить пароль</label>
       </div>
       <div class="login-check">
