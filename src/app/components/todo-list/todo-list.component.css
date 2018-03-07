@@ -19,7 +19,7 @@
   color: #00a2f4; }
 
 .toggle-task-type .toggle-task-list > * + *::before {
-  content: '/';
+  content: '|';
   display: inline-block;
   margin-right: .3em;
   color: #bebebe; }

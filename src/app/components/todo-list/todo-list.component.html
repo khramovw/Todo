@@ -5,8 +5,8 @@
   <div class="toggle-task-type">
     <div class="container">
       <div class="toggle-task-list">
-        <a class="active" href="#">Активные задачи</a>
-        <a href="#">Все задачи</a>
+        <a href="#">Активные задачи</a>
+        <a href="#" class="active" >Все задачи</a>
       </div>
     </div>
   </div>
@@ -19,8 +19,10 @@
         <span class="day" >{{ todo.setTime.getDate() }}</span>
         <span class="month">{{ todo.setTime.toLocaleString('ru',{month: 'long'}) }}</span>
       </div>
+
       <!-- передаю таски в app-todo [todoes]="todoes" -->
       <app-todo [todoes]="todoes"></app-todo>
+
     </div>
   </div>
 </main>
