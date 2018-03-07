@@ -11,11 +11,13 @@ import { TodoAddComponent } from '../components/todo-add/todo-add.component';
 import { AuthGuard } from "../guard/auth.guard";
 import {RegistrationComponent} from "../components/registration/registration.component";
 import {TodoDelComponent} from "../components/todo-del/todo-del.component";
+import {SetingsComponent} from "../components/setings/setings.component";
 
 const  routes: Routes = [
   { path: '', component: TodoListComponent, canActivate: [ AuthGuard ] },
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
+  { path: 'setings', component: SetingsComponent, canActivate: [ AuthGuard ] },
   { path: 'add', component: TodoAddComponent, canActivate: [ AuthGuard ] },
   { path: 'edit/:id', component: TodoEditComponent, canActivate: [ AuthGuard ] },
   { path: 'del/:id', component: TodoDelComponent, canActivate: [ AuthGuard ] },

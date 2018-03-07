@@ -5,9 +5,6 @@ import { TodoesService } from "../../services/todoes.service";
 
 // Models
 import { Task } from "../../models/Task";
-import {split} from "ts-node";
-import {Data} from "@angular/router";
-import {getLocaleDateFormat} from "@angular/common";
 
 
 @Component({

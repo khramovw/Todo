@@ -1,23 +1,24 @@
 <!-- header start -->
-<div class="fixed-to-top">
-  <header class="header">
-    <div class="container flex-container">
-      <button class="add-task" routerLink="/add" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-        <a href=""><span></span><span></span></a>
-      </button>
-      <nav class="user-nav">
-        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" ><i class="icon icon-user"></i></a>
-        <a (click)="onLogOutClick()" style="cursor: pointer;"><i class="icon icon-logout"></i></a>
-      </nav>
-    </div>
-  </header>
-  <div class="toggle-task-type">
-    <div class="container">
-      <div class="toggle-task-list">
-        <a class="active" href="#">Активные задачи</a>
-        <a href="#">Все задачи</a>
-      </div>
-    </div>
+<!--<div class="fixed-to-top">-->
+  <!---->
+  <!--&lt;!&ndash; header end &ndash;&gt;-->
+  <!--&lt;!&ndash;<div class="toggle-task-type">&ndash;&gt;-->
+    <!--&lt;!&ndash;<div class="container">&ndash;&gt;-->
+      <!--&lt;!&ndash;<div class="toggle-task-list">&ndash;&gt;-->
+        <!--&lt;!&ndash;<a class="active" href="#">Активные задачи</a>&ndash;&gt;-->
+        <!--&lt;!&ndash;<a href="#">Все задачи</a>&ndash;&gt;-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</div>-->
+<header class="header">
+  <div class="container flex-container">
+    <button class="add-task" routerLink="/add" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <a ><span></span><span></span></a>
+    </button>
+    <nav class="user-nav">
+      <a routerLink="/setings" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" ><i class="icon icon-user"></i></a>
+      <a (click)="onLogOutClick()" style="cursor: pointer;"><i class="icon icon-logout"></i></a>
+    </nav>
   </div>
-</div>
-<!-- header end -->
+</header>

@@ -18,6 +18,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { TodoComponent } from './components/todo/todo.component';
 import { TodoDelComponent } from './components/todo-del/todo-del.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { SetingsComponent } from './components/setings/setings.component';
 
 // Directive
 import {TaskAcardionDirective} from "./task-acardion.directive";
@@ -44,7 +45,8 @@ import { UidService } from "./services/uid.service";
     TodoComponent,
     TodoDelComponent,
     RegistrationComponent,
-    TaskAcardionDirective
+    TaskAcardionDirective,
+    SetingsComponent
   ],
   imports: [
     BrowserModule,

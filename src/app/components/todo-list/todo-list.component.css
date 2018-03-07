@@ -1,10 +1,38 @@
+/*header tasks*/
+.fixed-to-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: #fff; }
+
+.toggle-task-type {
+  padding: 5em 0px; }
+
+.toggle-task-type .toggle-task-list {
+  color: #bebebe;
+  font-size: 1.8em;
+  font-family: 'sf_ui_textsemibold'; }
+
+.toggle-task-type .toggle-task-list > *.active {
+  color: #00a2f4; }
+
+.toggle-task-type .toggle-task-list > * + *::before {
+  content: '/';
+  display: inline-block;
+  margin-right: .3em;
+  color: #bebebe; }
+
+/*tasks*/
 .task-day {
   background: #00a2f4;
   padding: 1em 2em;
   color: #fff; }
+
 .task-day .day {
   font-size: 3.6em;
   font-family: 'sf_ui_displaybold'; }
+
 .task-day .month {
   font-size: 1.8em; }
-

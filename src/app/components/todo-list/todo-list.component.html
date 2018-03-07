@@ -1,4 +1,17 @@
-<app-nav-bar></app-nav-bar>
+<div class="fixed-to-top">
+  <!-- header start -->
+  <app-nav-bar></app-nav-bar>
+  <!-- header end -->
+  <div class="toggle-task-type">
+    <div class="container">
+      <div class="toggle-task-list">
+        <a class="active" href="#">Активные задачи</a>
+        <a href="#">Все задачи</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <main>
   <div class="task-content" id="active-task">
     <div class="container" *ngFor="let todo of todoes; let i = index">
