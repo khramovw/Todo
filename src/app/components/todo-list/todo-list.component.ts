@@ -5,6 +5,9 @@ import { TodoesService } from "../../services/todoes.service";
 
 // Models
 import { Task } from "../../models/Task";
+import {split} from "ts-node";
+import {Data} from "@angular/router";
+import {getLocaleDateFormat} from "@angular/common";
 
 
 @Component({
@@ -15,10 +18,9 @@ import { Task } from "../../models/Task";
 export class TodoListComponent implements OnInit {
 
   todoes: Task[];
-  todo: Task;
-
-
   id: string;
+  inDate: any;
+  inMonth: any = {month: 'long'};
 
   constructor( private todoesService: TodoesService ) { }
 
@@ -27,16 +29,23 @@ export class TodoListComponent implements OnInit {
     // Получаю все таски
     this.todoesService.getTodoes().subscribe(todoes => {
       this.todoes = todoes;
+      console.log(this.todoes);
 
-      // for( let i = 0; i < this.todoes.length; i ++ ) {
-      //   if( todoes[i].done ) {
-      //     console.log(todoes[i]);
-      //     this.todoDone = true;
-      //     // this.taskHeadClass.success = true;
-      //   }
-      // }
-    });
+      todoes.forEach( ( todo, i, todoes ) => {
+        console.log(todo, i);
 
+        let dp = new Date( todoes[i].setTime );
+        console.log(dp);
+
+        let options = { month: 'long', day: 'numeric' };
+        // this.inDate = dp.toLocaleString('ru', options );
+
+        this.inDate = new Date( todoes[i].setTime ).getDate();
+        this.inMonth = dp.toLocaleString('ru', {month: 'long'} );
+        console.log( this.inDate , this.inMonth );
+
+
+      })
+    })
   }
-
 }

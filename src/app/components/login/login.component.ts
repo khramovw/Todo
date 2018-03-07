@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   email: string;
   password: string;
-  user: string;
+  user: {email: string, uid: string};
 
   @ViewChild("todoForm") form: any;
 
@@ -25,7 +25,12 @@ export class LoginComponent implements OnInit {
 
     this.authService.getAuth().subscribe( auth => {
       if ( auth ) {
+        // document.cookie.match(/user=(\+w);/);
+        // this.user = {email: this.user.JSON.parse('email'), uid: auth.uid};
+        console.log(auth.email);
         this.router.navigate(['/']);
+      } else {
+        this.authService.logout();
       }
     });
 
@@ -34,7 +39,19 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.authService.login(this.email, this.password)
       .then( res => {
-        this.user = this.email;
+        var date = new Date();
+        if( this.form.value.login) {
+
+          date.setDate(date.getDay() + 1);
+          document.cookie = `user=${this.email}; expires=${date.toUTCString()}`;
+
+        } else {
+
+          date.setSeconds(date.getSeconds() + 10);
+          document.cookie = `user=${this.email}; expires=${date.toUTCString()}`;
+
+        }
+
         this.router.navigate(['/']);
       })
       .catch( err => {

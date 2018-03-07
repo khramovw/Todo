@@ -50,32 +50,32 @@ export class TodoAddComponent implements OnInit {
     } else {
 
       // Получаю время
-      // this.todo.timestamp = +(new Date());
+      this.todo.timestamp = new Date();
 
       // получаю из ипутов дату и время и собираю в формате GMT и записываю в setTime:
       this.getdate = this.todo.date.split('-');           // от инпута с датой получаю строку и создаю масив
       this.gettime = this.todo.time.split(':'); // от инпута с временем получаю строку и создаю масив
       // собираю число в формате GMT
-      this.createformdate = +(new  Date(this.getdate[0], this.getdate[1]-1, this.getdate[2], this.gettime[0], this.gettime[1]));
+      this.createformdate = new  Date(this.getdate[0], this.getdate[1]-1, this.getdate[2], this.gettime[0], this.gettime[1]);
       // записываю в setTime:
-      // this.todo.setTime = this.createformdate;
+      this.todo.setTime = this.createformdate;
 
       // Записываю id
       // this.todo.id = this.uid.generate();
 
       // Отправка таска
-      // this.todoesService.addTodo(this.todo);
+      this.todoesService.addTodo(this.todo);
 
-      this.todoesService.addTodo({
-        date: this.todo.time,
-        id: this.uid.generate(),
-        done: false,
-        header: this.todo.header,
-        text: this.todo.text,
-        time: this.todo.time,
-        timestamp: +(new Date()),
-        setTime: this.createformdate
-      });
+      // this.todoesService.addTodo({
+      //   date: this.todo.time,
+      //   id: this.uid.generate(),
+      //   done: false,
+      //   header: this.todo.header,
+      //   text: this.todo.text,
+      //   time: this.todo.time,
+      //   timestamp: new Date(),
+      //   setTime: this.createformdate
+      // });
 
       // Перход на роут
       this.router.navigate(['/']);

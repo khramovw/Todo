@@ -1,12 +1,12 @@
 <app-nav-bar></app-nav-bar>
 <main>
   <div class="task-content" id="active-task">
-    <div class="container">
+    <div class="container" *ngFor="let todo of todoes; let i = index">
       <div class="task-day" >
-        <span class="day">09</span>
-        <span class="month">фев</span>
+        <span class="day" >{{ todo.setTime.getDate() }}</span>
+        <span class="month">{{ todo.setTime.toLocaleString('ru',{month: 'long'}) }}</span>
       </div>
-      <!-- передаю таски в app-todo -->
+      <!-- передаю таски в app-todo [todoes]="todoes" -->
       <app-todo [todoes]="todoes"></app-todo>
     </div>
   </div>
