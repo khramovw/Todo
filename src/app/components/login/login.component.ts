@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
 
   email: string;
   password: string;
+  login: any;
   user: {email: string, uid: string};
 
   @ViewChild("todoForm") form: any;
@@ -27,7 +28,7 @@ export class LoginComponent implements OnInit {
       if ( auth ) {
         // document.cookie.match(/user=(\+w);/);
         // this.user = {email: this.user.JSON.parse('email'), uid: auth.uid};
-        console.log(auth.email);
+        // console.log(auth.email);
         this.router.navigate(['/']);
       } else {
         this.authService.logout();

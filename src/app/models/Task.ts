@@ -6,5 +6,5 @@ export interface Task{
   text?: string;
   time?: string;
   timestamp?: any;
-  setTime?: number;
+  setTime?: any;
 }

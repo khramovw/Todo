@@ -16,8 +16,8 @@ export class TodoComponent implements OnInit {
 
   // получаю таски из todo-list
   @Input() todoes: Task[];
+  @Input() todo: Task;
 
-  todo: Task;
 
 
   todoDate: string;

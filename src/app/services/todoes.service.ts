@@ -8,21 +8,24 @@ import { Task } from '../models/Task';
 @Injectable()
 export class TodoesService {
 
-  todoesCollection: AngularFirestoreCollection<Task>;
-  todoDocument: AngularFirestoreDocument<Task>;
+  todoesCollection: AngularFirestoreCollection<Task>; // Колекция firebase
+  todoDocument: AngularFirestoreDocument<Task>;       // Документ firebase
   todoes: Observable<Task[]>;
   todo: Observable<Task>;
 
   constructor( private afs: AngularFirestore ) {
 
+    // Получаю колекцию[] из firebase
     this.todoesCollection = this.afs.collection('todoes', ref => ref.orderBy('date'));
 
   }
 
+  // Получаю все документы колекции[{}], масив объектов firebase
   getTodoes(): Observable<Task[]> {
     this.todoes = this.todoesCollection.snapshotChanges().map(collection => {
       return collection.map(document => {
         const data = document.payload.doc.data() as Task;
+        // Получаю id документа
         data.id = document.payload.doc.id;
         return data;
       });
@@ -30,10 +33,12 @@ export class TodoesService {
     return this.todoes;
   }
 
+  // Добавляю новый документ в firebase
   addTodo( todo: Task ) {
     this.todoesCollection.add(todo);
   }
 
+  // Получаю один документ колекции из firebase
   getTodo(id: string): Observable<Task> {
     this.todoDocument = this.afs.doc<Task>(`todoes/${id}`);
     this.todo = this.todoDocument.snapshotChanges().map(action => {
@@ -41,6 +46,7 @@ export class TodoesService {
         return null;
       } else {
         const data = action.payload.data() as Task;
+        // Получаю id документа
         data.id = action.payload.id;
         return data;
       }
@@ -48,11 +54,13 @@ export class TodoesService {
     return this.todo;
   }
 
+  // Обнавляю один документ колекции firebase
   updateTodo( todo: Task ) {
     this.todoDocument = this.afs.doc(`todoes/${todo.id}`);
     this.todoDocument.update(todo);
   }
 
+  // Удоляю один документ колекции firebase
   deleteTodo( todo: Task ) {
     this.todoDocument = this.afs.doc(`todoes/${todo.id}`);
     this.todoDocument.delete()
@@ -122,3 +130,5 @@ export class TodoesService {
   }
 
 }
+
+
