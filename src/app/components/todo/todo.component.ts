@@ -37,9 +37,9 @@ export class TodoComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log( this.form );
-    this.dataNow = +(new Date());
 
+    // Текущий момент времени
+    this.dataNow = +(new Date());
 
   }
 
@@ -49,17 +49,15 @@ export class TodoComponent implements OnInit {
       // console.log(todo.id);
       if ( todo ) {
 
+        //Получаю таск
         this.todo = todo;
 
+        // Получаю из фомы статус таска и записываю в done
         this.todo.done = this.form.value.check;
 
+        // Обновляю таск
         this.todoesService.updateTodo(this.todo);
 
-        console.log(this.todo);
-        console.log(this.form.value.check);
-        console.log(`this.todo ${this.todo}
-                      this.todo.done ${this.todo.done}
-                      todo.id ${todo.id}`);
       }
     }, error => {
       console.error(error);
