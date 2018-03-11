@@ -2,59 +2,65 @@
   <!-- one task start-->
 
   <div id="{{todo.id}}" class="task-section" *ngFor="let todo of todoes; let i = index" >
-          <div class="task open" [ngClass]="{worning: todo.setTime < dataNow && !todo.done, overdue: todo.setTime < dataNow && todo.done, success: todo.setTime > dataNow && todo.done}" >
-            <div class="to-do-time">{{ todo.time }}</div>
-            <div class="task-header flex-container" taskAcardion>
-              <span class="icon icon-arrow"></span>
-              <div class="short-task-text">{{ todo.header }}</div>
-              <span class="icon icon-cancel" routerLink="/del/{{todo.id}}"></span>
+
+      <div class="task open" [ngClass]="{worning: todo.setTime < dataNow && !todo.done, overdue: todo.setTime < dataNow && todo.done, success: todo.setTime > dataNow && todo.done}" >
+        <form #todoForm="ngForm" (change)="onSubmit()" >
+          <div class="to-do-time">{{ todo.time }}</div>
+          <div class="task-header flex-container" taskAcardion>
+            <span class="icon icon-arrow"></span>
+            <div class="short-task-text">{{ todo.header }}</div>
+            <span class="icon icon-cancel" routerLink="/del/{{todo.id}}"></span>
+          </div>
+          <div class="task-content-wrap">
+            <div class="time-row flex-container">
+              <div class="task-icon">
+                <span class="icon icon-time"></span>
+              </div>
+              <span class="time">{{(todo.setTime - dataNow) }}</span>
+              <div class="task-icon">
+                <span class="icon icon-bell icon-bell-active"></span>
+              </div>
             </div>
-            <div class="task-content-wrap">
-              <div class="time-row flex-container">
-                <div class="task-icon">
-                  <span class="icon icon-time"></span>
-                </div>
-                <span class="time">{{ todo.timestamp }}</span>
-                <div class="task-icon">
-                  <span class="icon icon-bell icon-bell-active"></span>
-                </div>
+            <div class="task-text-row flex-container">
+              <div class="task-icon">
+                <span class="icon icon-list"></span>
               </div>
-              <div class="task-text-row flex-container">
-                <div class="task-icon">
-                  <span class="icon icon-list"></span>
-                </div>
-                <div class="text">
-                  {{ todo.text }}
-                </div>
+              <div class="text">
+                {{ todo.text }}
               </div>
-              <div class="task-check-row flex-container">
-                <form #todoForm="ngForm" (change)="onSubmit()" >
-                  <input
-                    type="checkbox"
-                    id="check-task-{{ todo.id }}"
-                    name="check"
-                    [(ngModel)]="todo.done"
-                    #check="ngModel"
-                  >
-                  <label class="" for="check-task-{{ todo.id }}" >Задача еще не выполнена</label>
-                </form>
-              </div>
-              <div class="task-edit-row flex-container">
-                <div class="task-icon" routerLink="/edit/{{ todo.id }}" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                  <span class="icon icon-edit"></span>
-                </div>
+            </div>
+            <div class="task-check-row flex-container">
+
+              <input
+                type="checkbox"
+                id="check-task-{{ todo.id }}"
+                name="check"
+                [(ngModel)]="todo.done"
+                #check="ngModel"
+              >
+              <label class="" for="check-task-{{ todo.id }}" >{{!todo.done ? 'Задача еще не выполнена' : 'Задача завершина'}}</label>
+
+            </div>
+            <div class="task-edit-row flex-container">
+              <div class="task-icon" routerLink="/edit/{{ todo.id }}" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <span class="icon icon-edit"></span>
               </div>
             </div>
           </div>
-          <div class="task-status color-worning">
-            <div class="status-icon">
-              <span class="icon icon-warning"></span>
-            </div>
-            <div class="status-text">
-              <p>Вы не выполнили эту задачу</p>
-            </div>
-          </div>
+        </form>
+
+      </div>
+      <div class="task-status status-on" [ngClass]="{color_worning: todo.setTime < dataNow && !todo.done, color_overdue: todo.setTime < dataNow && todo.done, color_success: todo.setTime > dataNow && todo.done}">
+        <div class="status-icon">
+          <span class="icon" [ngClass]="{icon_warning: todo.setTime < dataNow && !todo.done, icon_star: todo.setTime > dataNow && todo.done}"></span>
         </div>
+        <div class="status-text">
+          <p *ngIf="todo.setTime < dataNow && !todo.done || todo.setTime < dataNow && todo.done">{{todo.setTime < dataNow && !todo.done ? 'Вы не выполнили эту задачу' : todo.setTime < dataNow && todo.done ? 'Задача выполнена с опозданием' : ''}}</p>
+          <p *ngIf="todo.setTime > dataNow && todo.done || todo.setTime > dataNow && !todo.done">{{todo.setTime > dataNow && todo.done ? 'Задача выполнена !' : 'Задача еще не выполнена'}}</p>
+        </div>
+      </div>
+
+  </div>
 
   <!-- one task end -->
 </div>

@@ -47,6 +47,8 @@ export class TodoComponent implements OnInit {
 
     console.log( this.form.value.check );
 
+    // this.todo.done = todo.done;
+
     this.todoesService.updateTodo(this.todo);
 
   }

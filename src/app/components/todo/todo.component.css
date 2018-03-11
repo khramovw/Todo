@@ -129,7 +129,9 @@
   -webkit-border-radius: 50%;
   border-radius: 50%;
   background: #FFF;
-  margin-right: 10px; }
+  margin-right: 10px;
+  position: relative;
+  top: 5px; }
 .task-section .task .task-content-wrap .task-check-row input[type="checkbox"]:checked + label::before {
   background: #fff url(../../../assets/img/check.svg);
   background-repeat: no-repeat;
@@ -171,9 +173,11 @@
 @media (max-width: 768px) {
   .task-section .task-status p {
     font-size: 2em; } }
-.task-section .color-worning {
+.task-section .color_worning {
   color: #ff5201; }
-.task-section .color-success {
+.task-section .color_overdue {
+  color: #ffbb00; }
+.task-section .color_success {
   color: #7cbb00; }
 .task-section .status-on {
   display: -webkit-box;

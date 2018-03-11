@@ -167,7 +167,7 @@ main {
   src: url("assets/fonts/planer-icons.eot");
   src: url("assets/fonts/planer-icons.eot?#iefix") format("eot"), url("assets/fonts/planer-icons.woff2") format("woff2"), url("assets/fonts/planer-icons.woff") format("woff"), url("assets/fonts/planer-icons.ttf") format("truetype"), url("assets/fonts/planer-icons.svg#planer-icons") format("svg"); }
 
-.icon-account_circle-blue:before, .icon-account_circle-grey:before, .icon-add:before, .icon-arrow:before, .icon-bell-not_active:before, .icon-bell:before, .icon-cancel:before, .icon-check:before, .icon-check_box:before, .icon-check_box_outline:before, .icon-edit-not_active:before, .icon-edit:before, .icon-list:before, .icon-lock-blue:before, .icon-lock-grey:before, .icon-logout:before, .icon-star:before, .icon-time:before, .icon-user:before, .icon-warning:before {
+.icon-account_circle-blue:before, .icon-account_circle-grey:before, .icon-add:before, .icon-arrow:before, .icon-bell-not_active:before, .icon-bell:before, .icon-cancel:before, .icon-check:before, .icon-check_box:before, .icon-check_box_outline:before, .icon-edit-not_active:before, .icon-edit:before, .icon-list:before, .icon-lock-blue:before, .icon-lock-grey:before, .icon-logout:before, .icon_star:before, .icon-time:before, .icon-user:before, .icon_warning:before {
   font-family: "planer-icons";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -225,7 +225,7 @@ main {
 .icon-logout:before {
   content: ""; }
 
-.icon-star:before {
+.icon_star:before {
   content: ""; }
 
 .icon-time:before {
@@ -234,7 +234,7 @@ main {
 .icon-user:before {
   content: ""; }
 
-.icon-warning:before {
+.icon_warning:before {
   content: ""; }
 
 .flex-container {
