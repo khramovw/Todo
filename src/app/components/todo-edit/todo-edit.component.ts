@@ -18,6 +18,8 @@ export class TodoEditComponent implements OnInit {
   header: string;
 
   @Input() headersPopup: string;
+
+  // Получаю элементы формы
   @ViewChild("todoEditForm") form: any;
 
   id: string;
@@ -55,10 +57,10 @@ export class TodoEditComponent implements OnInit {
 
     } else {
 
-      // получаю из ипутов дату и время и собираю в формате GMT и записываю в setTime:
-      this.getdate = this.todo.date.split('-');          // от инпута с датой получаю строку и создаю масив
+      // получаю из ипутов дату и время:
+      this.getdate = this.todo.date.split('-'); // от инпута с датой получаю строку и создаю масив
       this.gettime = this.todo.time.split(':'); // от инпута с временем получаю строку и создаю масив
-      // собираю число в формате GMT
+      // собираю число и получаю дату в формате GMT
       this.createformdate = +(new  Date(this.getdate[0], this.getdate[1] - 1, this.getdate[2], this.gettime[0], this.gettime[1]));
       // записываю в setTime:
       this.todo.setTime = this.createformdate;

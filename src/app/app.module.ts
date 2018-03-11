@@ -21,7 +21,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { SetingsComponent } from './components/setings/setings.component';
 
 // Directive
-import {TaskAcardionDirective} from "./task-acardion.directive";
+import { TaskAcardionDirective } from "./task-acardion.directive";
 
 // Modules
 import { AppRoutingModule } from './app-routing/app-routing.module';

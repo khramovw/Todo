@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 
 // Models
 import { Task } from "../../models/Task";
@@ -18,14 +18,13 @@ export class TodoComponent implements OnInit {
   @Input() todoes: Task[];
   @Input() todo: Task;
 
-
-
   todoDate: string;
-
   taskHeadClass = {};
-  todoDone: boolean = false;
-
+  todoDone: boolean;
   dataNow = +(new Date());
+
+  // Получаю элементы формы
+  @ViewChild("todoForm") form: any;
 
   constructor( private todoesService: TodoesService ) {
 
@@ -38,6 +37,17 @@ export class TodoComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log( this.form );
+    this.dataNow = +(new Date());
+
+
+  }
+
+  onSubmit() {
+
+    console.log( this.form.value.check );
+
+    this.todoesService.updateTodo(this.todo);
 
   }
 

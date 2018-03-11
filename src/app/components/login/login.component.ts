@@ -12,9 +12,10 @@ export class LoginComponent implements OnInit {
 
   email: string;
   password: string;
-  login: any;
+  login: boolean;
   user: {email: string, uid: string};
 
+  // Получаю элементы формы
   @ViewChild("todoForm") form: any;
 
   constructor(
@@ -23,6 +24,8 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    console.log(this.form);
 
     this.authService.getAuth().subscribe( auth => {
       if ( auth ) {
@@ -48,7 +51,7 @@ export class LoginComponent implements OnInit {
 
         } else {
 
-          date.setSeconds(date.getSeconds() + 10);
+          date.setSeconds(date.getSeconds() + 1800);
           document.cookie = `user=${this.email}; expires=${date.toUTCString()}`;
 
         }
