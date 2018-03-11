@@ -21,7 +21,7 @@ export class TodoComponent implements OnInit {
   todoDate: string;
   taskHeadClass = {};
   todoDone: boolean;
-  dataNow = +(new Date());
+  dataNow: any;
 
   // Получаю элементы формы
   @ViewChild("todoForm") form: any;
@@ -43,13 +43,27 @@ export class TodoComponent implements OnInit {
 
   }
 
-  onSubmit() {
+  onSubmit(todo) {
 
-    console.log( this.form.value.check );
+    this.todoesService.getTodo(todo.id).subscribe( todo => {
+      // console.log(todo.id);
+      if ( todo ) {
 
-    // this.todo.done = todo.done;
+        this.todo = todo;
 
-    this.todoesService.updateTodo(this.todo);
+        this.todo.done = this.form.value.check;
+
+        this.todoesService.updateTodo(this.todo);
+
+        console.log(this.todo);
+        console.log(this.form.value.check);
+        console.log(`this.todo ${this.todo}
+                      this.todo.done ${this.todo.done}
+                      todo.id ${todo.id}`);
+      }
+    }, error => {
+      console.error(error);
+    })
 
   }
 

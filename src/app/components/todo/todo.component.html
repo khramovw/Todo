@@ -4,7 +4,7 @@
   <div id="{{todo.id}}" class="task-section" *ngFor="let todo of todoes; let i = index" >
 
       <div class="task open" [ngClass]="{worning: todo.setTime < dataNow && !todo.done, overdue: todo.setTime < dataNow && todo.done, success: todo.setTime > dataNow && todo.done}" >
-        <form #todoForm="ngForm" (change)="onSubmit()" >
+        <form #todoForm="ngForm" (change)="onSubmit(todo)" >
           <div class="to-do-time">{{ todo.time }}</div>
           <div class="task-header flex-container" taskAcardion>
             <span class="icon icon-arrow"></span>
@@ -52,7 +52,7 @@
       </div>
       <div class="task-status status-on" [ngClass]="{color_worning: todo.setTime < dataNow && !todo.done, color_overdue: todo.setTime < dataNow && todo.done, color_success: todo.setTime > dataNow && todo.done}">
         <div class="status-icon">
-          <span class="icon" [ngClass]="{icon_warning: todo.setTime < dataNow && !todo.done, icon_star: todo.setTime > dataNow && todo.done}"></span>
+          <span class="icon" [ngClass]="{icon_warning: todo.setTime < dataNow && !todo.done || todo.setTime < dataNow && todo.done, icon_star: todo.setTime > dataNow && todo.done || todo.setTime > dataNow && !todo.done}"></span>
         </div>
         <div class="status-text">
           <p *ngIf="todo.setTime < dataNow && !todo.done || todo.setTime < dataNow && todo.done">{{todo.setTime < dataNow && !todo.done ? 'Вы не выполнили эту задачу' : todo.setTime < dataNow && todo.done ? 'Задача выполнена с опозданием' : ''}}</p>

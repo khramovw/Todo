@@ -33,11 +33,6 @@ export class TodoesService {
     return this.todoes;
   }
 
-  // Добавляю новый документ в firebase
-  addTodo( todo: Task ) {
-    this.todoesCollection.add(todo);
-  }
-
   // Получаю один документ колекции из firebase
   getTodo(id: string): Observable<Task> {
     this.todoDocument = this.afs.doc<Task>(`todoes/${id}`);
@@ -52,6 +47,11 @@ export class TodoesService {
       }
     });
     return this.todo;
+  }
+
+  // Добавляю новый документ в firebase
+  addTodo( todo: Task ) {
+    this.todoesCollection.add(todo);
   }
 
   // Обнавляю один документ колекции firebase
