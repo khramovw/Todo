@@ -16,8 +16,6 @@ export class TodoListComponent implements OnInit {
 
   todoes: Task[];
   id: string;
-  tasksDay: any ;
-  inMonth: any;
 
   constructor( private todoesService: TodoesService ) { }
 
@@ -27,24 +25,7 @@ export class TodoListComponent implements OnInit {
     this.todoesService.getTodoes().subscribe(todoes => {
       this.todoes = todoes;
 
-      console.log(this.todoes);
-
-
-
-      // this.tasksDay = todoes.filter((todo,i,todoes) => {
-      //   // console.log(todo,i);
-      //
-      //   // let thisday = String(todo.setTime.toLocaleString('ru',{day: 'numeric', month: 'long'}));
-      //
-      //
-      // });
-      // console.log(this.tasksDay);
-
-      // for( let i = 0, max = this.todoes.length; i < max; i++ ) {
-      //   // console.log('todoes[i]: ', this.todoes[i]);
-      //
-      //
-      // }
+      // console.log(this.todoes);
 
     })
   }

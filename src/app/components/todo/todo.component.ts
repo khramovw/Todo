@@ -18,9 +18,7 @@ export class TodoComponent implements OnInit {
   @Input() todoes: Task[];
   @Input() todo: Task;
 
-  todoDate: string;
   taskHeadClass = {};
-  todoDone: boolean;
   dataNow: any;
 
   // Получаю элементы формы
@@ -42,39 +40,54 @@ export class TodoComponent implements OnInit {
     // Текущий момент времени
     this.dataNow = +(new Date());
 
-    // this.taskHeadClass = {
-    //   worning: todo.setTime=100 < dataNow=150 && todo.done=0 ,
-    //   success: todo.setTime=150 > dataNow=100 && todo.setTime > todo.done=50 > 0 ,
-    //   overdue: todo.setTime=100 > dataNow=150 && todo.setTime < todo.done=120
-    //
-    // }
-
-
   }
 
   onSubmit(todo) {
 
-    this.todoesService.getTodo(todo.id).subscribe( todo => {
+    // console.log('todo', todo);
+    // console.log('this.form', this.form);
 
-      if ( todo ) {
+    //Получаю таск
+    this.todo = todo;
 
-        //Получаю таск
-        this.todo = todo;
+    // console.log('this.todo', this.todo);
 
-        // Получаю из фомы статус таска и записываю в done
-        // this.todo.done = this.form.value.check;
+    // Получаю из фомы статус таска и записываю в done
+    this.todo.done = this.form.value.check;
 
-        if( this.form.value.check ) {
-          this.todo.done = +(new Date());
-        }
+    // console.log('todo done', this.todo.done);
 
-        // Обновляю таск
-        this.todoesService.updateTodo(this.todo);
+    // Обновляю таск
+    this.todoesService.updateTodo(this.todo);
 
-      }
-    }, error => {
-      console.error(error);
-    })
+    // console.log('updateTodo', this.todo.done);
+
+    // this.todoesService.getTodo(todo.id).subscribe( todo => {
+    //
+    //   if ( todo ) {
+    //
+    //     console.log('todo', todo);
+    //
+    //     //Получаю таск
+    //     this.todo = todo;
+    //
+    //     console.log('this.todo', this.todo);
+    //
+    //     // Получаю из фомы статус таска и записываю в done
+    //     this.todo.done = this.form.value.check;
+    //
+    //     console.log('todo done', this.todo.done);
+    //
+    //     // Обновляю таск
+    //     this.todoesService.updateTodo(this.todo);
+    //
+    //     console.log('updateTodo', this.todo.done);
+    //
+    //   }
+    //
+    // }, error => {
+    //   console.error(error);
+    // });
 
   }
 

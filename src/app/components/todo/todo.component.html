@@ -3,9 +3,11 @@
 
   <div id="{{todo.id}}" class="task-section" *ngFor="let todo of todoes; let i = index" >
 
-      <div class="task open" [ngClass]="{worning: todo.setTime < dataNow && !todo.done, overdue: todo.setTime < dataNow && todo.done, success: todo.setTime > dataNow && todo.done}" >
+      <div class="task" [ngClass]="{worning: todo.setTime < dataNow && !todo.done, overdue: todo.setTime < dataNow && todo.done, success: todo.setTime > dataNow && todo.done}" >
       <!--<div class="task open" [ngClass]="{worning: todo.setTime < dataNow && !todo.done, overdue: todo.setTime < dataNow && todo.setTime < todo.done , success: todo.setTime > dataNow && todo.setTime > todo.done && todo.done > 0}" >-->
-        <form #todoForm="ngForm" (change)="onSubmit(todo)" >
+
+        <form #todoForm="ngForm" (click)="onSubmit(todo)" >
+
           <div class="to-do-time">{{ todo.time }}</div>
           <div class="task-header flex-container" taskAcardion>
             <span class="icon icon-arrow"></span>
@@ -48,6 +50,7 @@
               </div>
             </div>
           </div>
+
         </form>
 
       </div>
