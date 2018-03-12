@@ -1,7 +1,7 @@
 export interface Task{
   date?: any;
   id?: string;
-  done?: boolean;
+  done?: any;
   header?: string;
   text?: string;
   time?: string;

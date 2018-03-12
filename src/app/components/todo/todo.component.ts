@@ -30,8 +30,9 @@ export class TodoComponent implements OnInit {
 
     // Классы для хедера таска
     this.taskHeadClass = {
-      success: this.todoDone,
-      worning: false
+      success: false,
+      worning: false,
+      overdue: false
     };
 
   }
@@ -41,19 +42,31 @@ export class TodoComponent implements OnInit {
     // Текущий момент времени
     this.dataNow = +(new Date());
 
+    // this.taskHeadClass = {
+    //   worning: todo.setTime=100 < dataNow=150 && todo.done=0 ,
+    //   success: todo.setTime=150 > dataNow=100 && todo.setTime > todo.done=50 > 0 ,
+    //   overdue: todo.setTime=100 > dataNow=150 && todo.setTime < todo.done=120
+    //
+    // }
+
+
   }
 
   onSubmit(todo) {
 
     this.todoesService.getTodo(todo.id).subscribe( todo => {
-      // console.log(todo.id);
+
       if ( todo ) {
 
         //Получаю таск
         this.todo = todo;
 
         // Получаю из фомы статус таска и записываю в done
-        this.todo.done = this.form.value.check;
+        // this.todo.done = this.form.value.check;
+
+        if( this.form.value.check ) {
+          this.todo.done = +(new Date());
+        }
 
         // Обновляю таск
         this.todoesService.updateTodo(this.todo);

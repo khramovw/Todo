@@ -26,27 +26,25 @@ export class TodoListComponent implements OnInit {
     // Получаю все таски
     this.todoesService.getTodoes().subscribe(todoes => {
       this.todoes = todoes;
+
       console.log(this.todoes);
 
-      this.tasksDay = todoes.filter((todo,i,todoes) => {
-        console.log(todo,i);
-
-        let thisday = String(todo.setTime.toLocaleString('ru',{day: 'numeric', month: 'long'}));
-
-        
 
 
-        console.log(thisday);
+      // this.tasksDay = todoes.filter((todo,i,todoes) => {
+      //   // console.log(todo,i);
+      //
+      //   // let thisday = String(todo.setTime.toLocaleString('ru',{day: 'numeric', month: 'long'}));
+      //
+      //
+      // });
+      // console.log(this.tasksDay);
 
-
-      });
-      console.log(this.tasksDay);
-
-      for( let i = 0, max = this.todoes.length; i < max; i++ ) {
-        // console.log('todoes[i]: ', this.todoes[i]);
-
-
-      }
+      // for( let i = 0, max = this.todoes.length; i < max; i++ ) {
+      //   // console.log('todoes[i]: ', this.todoes[i]);
+      //
+      //
+      // }
 
     })
   }
