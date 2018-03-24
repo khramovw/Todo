@@ -44,6 +44,9 @@ export class TodoComponent implements OnInit {
 
   onSubmit(todo) {
 
+    //Останавливаю всплытие события
+    todo.stopPropagation();
+
     // console.log('todo', todo);
     // console.log('this.form', this.form);
 
