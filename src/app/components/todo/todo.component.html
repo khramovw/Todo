@@ -6,7 +6,7 @@
       <div class="task" [ngClass]="{worning: todo.setTime < dataNow && !todo.done, overdue: todo.setTime < dataNow && todo.done, success: todo.setTime > dataNow && todo.done}" >
       <!--<div class="task open" [ngClass]="{worning: todo.setTime < dataNow && !todo.done, overdue: todo.setTime < dataNow && todo.setTime < todo.done , success: todo.setTime > dataNow && todo.setTime > todo.done && todo.done > 0}" >-->
 
-        <form #todoForm="ngForm" (click)="onSubmit(todo)" >
+        <form #todoForm="ngForm" (change)="onSubmit($event)" >
 
           <div class="to-do-time">{{ todo.time }}</div>
           <div class="task-header flex-container" taskAcardion>
@@ -40,7 +40,9 @@
                 name="check"
                 [(ngModel)]="todo.done"
                 #check="ngModel"
+                (click)="onTodoCheck($event, todo)"
               >
+
               <label class="" for="check-task-{{ todo.id }}" >{{!todo.done ? 'Задача еще не выполнена' : 'Задача завершина'}}</label>
 
             </div>

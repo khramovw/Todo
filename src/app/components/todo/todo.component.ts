@@ -42,55 +42,44 @@ export class TodoComponent implements OnInit {
 
   }
 
-  onSubmit(todo) {
+  onSubmit($event) {
 
-    //Останавливаю всплытие события
-    todo.stopPropagation();
-
-    // console.log('todo', todo);
-    // console.log('this.form', this.form);
-
-    //Получаю таск
-    this.todo = todo;
-
-    // console.log('this.todo', this.todo);
-
-    // Получаю из фомы статус таска и записываю в done
-    this.todo.done = this.form.value.check;
-
-    // console.log('todo done', this.todo.done);
-
-    // Обновляю таск
-    this.todoesService.updateTodo(this.todo);
-
-    // console.log('updateTodo', this.todo.done);
+    console.log('form', this.form);
 
     // this.todoesService.getTodo(todo.id).subscribe( todo => {
     //
     //   if ( todo ) {
     //
-    //     console.log('todo', todo);
-    //
     //     //Получаю таск
     //     this.todo = todo;
-    //
-    //     console.log('this.todo', this.todo);
     //
     //     // Получаю из фомы статус таска и записываю в done
     //     this.todo.done = this.form.value.check;
     //
-    //     console.log('todo done', this.todo.done);
-    //
     //     // Обновляю таск
     //     this.todoesService.updateTodo(this.todo);
-    //
-    //     console.log('updateTodo', this.todo.done);
     //
     //   }
     //
     // }, error => {
     //   console.error(error);
     // });
+
+  }
+
+  onTodoCheck($event, todo) {
+
+    //Останавливаю всплытие события
+    $event.stopPropagation();
+
+    //Получаю таск
+    this.todo = todo;
+
+    // Получаю из фомы статус таска и записываю в todo.done
+    this.todo.done = $event.toElement.checked;
+
+    // Обновляю таск
+    this.todoesService.updateTodo(this.todo);
 
   }
 

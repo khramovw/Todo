@@ -1,6 +1,5 @@
 import {Directive, ElementRef, HostListener, Renderer2} from "@angular/core";
 
-
 declare var $: any;
 
 @Directive({
@@ -16,13 +15,17 @@ export class TaskAcardionDirective {
       let taskContentWrap = $(parentTask).find('.task-content-wrap');
 
       if ($(parentTask).hasClass('open')) {
+
         $(taskContentWrap).slideUp(500, function () {
           $(parentTask).removeClass('open');
         });
+
       } else {
+
         $(taskContentWrap).slideDown(500, function () {
           $(parentTask).addClass('open');
         })
+
       }
     }
 
