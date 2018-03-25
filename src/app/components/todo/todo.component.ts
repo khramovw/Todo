@@ -69,17 +69,23 @@ export class TodoComponent implements OnInit {
 
   onTodoCheck($event, todo) {
 
-    //Останавливаю всплытие события
-    $event.stopPropagation();
+    $event.preventDefault();
 
-    //Получаю таск
-    this.todo = todo;
+    if( $event.target.tagName === 'INPUT') {
 
-    // Получаю из фомы статус таска и записываю в todo.done
-    this.todo.done = $event.toElement.checked;
+      //Останавливаю всплытие события
+      $event.stopPropagation();
 
-    // Обновляю таск
-    this.todoesService.updateTodo(this.todo);
+      //Получаю таск
+      this.todo = todo;
+
+      // Получаю из фомы статус таска и записываю в todo.done
+      this.todo.done = $event.toElement.checked;
+
+      // Обновляю таск
+      this.todoesService.updateTodo(this.todo);
+
+    }
 
   }
 

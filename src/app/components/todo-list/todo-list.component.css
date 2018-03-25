@@ -10,6 +10,10 @@
 .toggle-task-type {
   padding: 5em 0px; }
 
+.toggle-task-list span{
+  cursor: pointer;
+}
+
 .toggle-task-type .toggle-task-list {
   color: #bebebe;
   font-size: 1.8em;

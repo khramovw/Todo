@@ -9,7 +9,7 @@
         <form #todoForm="ngForm" (change)="onSubmit($event)" >
 
           <div class="to-do-time">{{ todo.time }}</div>
-          <div class="task-header flex-container" taskAcardion>
+          <div class="task-header flex-container" taskAcardion >
             <span class="icon icon-arrow"></span>
             <div class="short-task-text">{{ todo.header }}</div>
             <span class="icon icon-cancel" routerLink="/del/{{todo.id}}"></span>

@@ -9,6 +9,11 @@ export class TaskAcardionDirective {
 
   @HostListener('click') onClick() {
 
+    // e.preventDefault();
+    // e.stopPropagation();
+
+    // console.log($);
+
     if (!$(this).hasClass('icon-cancel')) {
 
       let parentTask = this.elementRef.nativeElement.closest('.task');
@@ -27,6 +32,7 @@ export class TaskAcardionDirective {
         })
 
       }
+
     }
 
   }
