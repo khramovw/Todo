@@ -81,9 +81,13 @@ export class TodoListComponent implements OnInit {
 
   }
 
-  tabToggleClick() {
+  tabToggleClick($event) {
 
-    this.toggleList = !this.toggleList;
+    if ( $event.toElement.classList["0"] !== 'active') {
+
+      this.toggleList = !this.toggleList;
+
+    }
 
   }
 }

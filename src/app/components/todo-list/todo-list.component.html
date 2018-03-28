@@ -6,8 +6,8 @@
   <div class="toggle-task-type">
     <div class="container">
       <div class="toggle-task-list" >
-        <span data-tab="0" (click)="tabToggleClick()">Активные задачи</span>
-        <span data-tab="1" class="active" (click)="tabToggleClick()" >Все задачи</span>
+        <span data-tab="0" (click)="tabToggleClick($event)">Активные задачи</span>
+        <span data-tab="1" class="active" (click)="tabToggleClick($event)" >Все задачи</span>
       </div>
     </div>
   </div>
@@ -15,7 +15,7 @@
 </div>
 <!--main start-->
 <main>
-  <div *ngIf="toggleList" class="task-content" id="active-task">
+  <div *ngIf="!toggleList" class="task-content" id="active-task">
     <div class="container" >
 
       <div class="task-day" >
@@ -28,7 +28,7 @@
 
     </div>
   </div>
-  <div *ngIf="!toggleList" class="task-content" id="all-task">
+  <div *ngIf="toggleList" class="task-content" id="all-task">
     <div class="container" >
 
       <div class="task-day" >
