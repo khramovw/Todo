@@ -5,9 +5,9 @@
   <!--day header start-->
   <div class="toggle-task-type">
     <div class="container">
-      <div class="toggle-task-list">
-        <span data-tab="0">Активные задачи</span>
-        <span data-tab="1" class="active" >Все задачи</span>
+      <div class="toggle-task-list" >
+        <span data-tab="0" (click)="tabToggleClick()">Активные задачи</span>
+        <span data-tab="1" class="active" (click)="tabToggleClick()" >Все задачи</span>
       </div>
     </div>
   </div>

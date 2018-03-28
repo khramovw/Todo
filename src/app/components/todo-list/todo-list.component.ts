@@ -17,22 +17,24 @@ export class TodoListComponent implements OnInit {
   todoes: Task[];
   id: string;
   dataNow: any;
-  toggleList: boolean = true;
+  public toggleList: boolean = true;
   tab0: any = [];
   tab1: any = [];
 
   constructor( private todoesService: TodoesService ) { }
 
   ngOnInit() {
-    console.log('toggleList', this.toggleList);
+
     this.dataNow = new Date();
 
-    let toggleList = true;
+    let toggleList = this.toggleList;
 
     // Получаю все задачи
     this.todoesService.getTodoes().subscribe(todoes => {
 
       this.todoes = todoes;
+
+      console.log('Получаю все задачи: ','toggleList-', toggleList, 'this.toggleList-', this.toggleList);
 
       // Нахожу активные задачи
       this.todoes.forEach( todo => {
@@ -70,18 +72,18 @@ export class TodoListComponent implements OnInit {
 
         arr.forEach( btn => btn.classList.toggle('active') );//На активный таб добавляю класс active
 
-        // this.dataset['tab'] === '0' ? toggleList = false : toggleList = true;
-
-        toggleList = !toggleList;
-
-        console.log(toggleList);
-
       }
 
     }
 
     //Отслеживаю клик на элементе
     arr.forEach( btn => btn.addEventListener( 'click', tabToggle ) );
+
+  }
+
+  tabToggleClick() {
+
+    this.toggleList = !this.toggleList;
 
   }
 }
