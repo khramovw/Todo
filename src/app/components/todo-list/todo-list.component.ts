@@ -27,7 +27,9 @@ export class TodoListComponent implements OnInit {
     console.log('toggleList', this.toggleList);
     this.dataNow = new Date();
 
-    // Получаю все таски
+    let toggleList = true;
+
+    // Получаю все задачи
     this.todoesService.getTodoes().subscribe(todoes => {
 
       this.todoes = todoes;
@@ -37,12 +39,12 @@ export class TodoListComponent implements OnInit {
 
         if ( todo.setTime > this.dataNow && !todo.done ) {
 
-          this.tab0.push(todo);// Записываю активные задачи
+          this.tab0.push(todo);                   // Записываю активные задачи
 
         } else if ( todo.setTime < this.dataNow && !todo.done || todo.setTime < this.dataNow && todo.done  ) {
 
-          this.tab0.pop(todo);//Удаляю не активную задачу
-          this.tab1 = this.todoes;// Записываю все задачи
+          this.tab0.pop(todo);                    //Удаляю не активную задачу из активных
+          this.tab1 = this.todoes;                // Записываю все задачи
 
         }
 
@@ -54,7 +56,7 @@ export class TodoListComponent implements OnInit {
 
     // Нахожу кнопки активные и текущие задачи
     let tabControls = document.querySelectorAll('.toggle-task-list span'),
-        arr         = [].slice.call(tabControls);// Записываю из объекта масив
+        arr         = [].slice.call(tabControls); // Записываю из объекта масив
 
     // Переключаю кнопки активные и текущие задачи
     function tabToggle(e) {
@@ -68,11 +70,11 @@ export class TodoListComponent implements OnInit {
 
         arr.forEach( btn => btn.classList.toggle('active') );//На активный таб добавляю класс active
 
-        this.dataset['tab'] === '0' ? this.toggleList = false : this.toggleList = true;
+        // this.dataset['tab'] === '0' ? toggleList = false : toggleList = true;
 
-        console.log(this.toggleList);
+        toggleList = !toggleList;
 
-        return this.toggleList;
+        console.log(toggleList);
 
       }
 
