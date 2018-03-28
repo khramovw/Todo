@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {RouterModule, Routes} from "@angular/router";
+import { RouterModule, Routes } from "@angular/router";
 
 // Components
 import { LoginComponent } from '../components/login/login.component';
@@ -9,9 +9,9 @@ import { TodoEditComponent } from '../components/todo-edit/todo-edit.component';
 import { TodoAddComponent } from '../components/todo-add/todo-add.component';
 
 import { AuthGuard } from "../guard/auth.guard";
-import {RegistrationComponent} from "../components/registration/registration.component";
-import {TodoDelComponent} from "../components/todo-del/todo-del.component";
-import {SetingsComponent} from "../components/setings/setings.component";
+import { RegistrationComponent } from "../components/registration/registration.component";
+import { TodoDelComponent } from "../components/todo-del/todo-del.component";
+import { SetingsComponent } from "../components/setings/setings.component";
 
 const  routes: Routes = [
   { path: '', component: TodoListComponent, canActivate: [ AuthGuard ] },

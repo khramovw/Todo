@@ -15,15 +15,29 @@
 </div>
 <!--main start-->
 <main>
-  <div class="task-content" id="active-task">
+  <div *ngIf="toggleList" class="task-content" id="active-task">
     <div class="container" >
+
       <div class="task-day" >
         <span class="day" >{{ 1 }}</span>
         <span class="month" >{{ 1 }}</span>
       </div>
 
       <!-- передаю таски в app-todo [todoes]="todoes" -->
-      <app-todo [todoes]="todoes"></app-todo>
+      <app-todo [todoes]="tab0"></app-todo>
+
+    </div>
+  </div>
+  <div *ngIf="!toggleList" class="task-content" id="all-task">
+    <div class="container" >
+
+      <div class="task-day" >
+        <span class="day" >{{ 2}}</span>
+        <span class="month" >{{ 2 }}</span>
+      </div>
+
+      <!-- передаю таски в app-todo [todoes]="todoes" -->
+      <app-todo [todoes]="tab1"></app-todo>
 
     </div>
   </div>

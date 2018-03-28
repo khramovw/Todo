@@ -1,7 +1,7 @@
 <div class="all-task-wrap" *ngIf="todoes?.length; else noTodoes">
   <!-- one task start-->
 
-  <div id="{{todo.id}}" class="task-section" *ngFor="let todo of todoes; let i = index" >
+  <div  id="{{todo.id}}" class="task-section" *ngFor="let todo of todoes; let i = index" >
 
       <div class="task" [ngClass]="{worning: todo.setTime < dataNow && !todo.done, overdue: todo.setTime < dataNow && todo.done, success: todo.setTime > dataNow && todo.done}" >
       <!--<div class="task open" [ngClass]="{worning: todo.setTime < dataNow && !todo.done, overdue: todo.setTime < dataNow && todo.setTime < todo.done , success: todo.setTime > dataNow && todo.setTime > todo.done && todo.done > 0}" >-->
@@ -19,6 +19,7 @@
               <div class="task-icon">
                 <span class="icon icon-time"></span>
               </div>
+              <span id="time"></span>
               <span class="time">{{(todo.setTime - dataNow) }}</span>
               <div class="task-icon">
                 <span class="icon icon-bell icon-bell-active"></span>
@@ -69,6 +70,7 @@
   </div>
 
   <!-- one task end -->
+
 </div>
 
 <ng-template #noTodoes >

@@ -17,6 +17,8 @@ export class TodoComponent implements OnInit {
   // получаю таски из todo-list
   @Input() todoes: Task[];
   @Input() todo: Task;
+  @Input() tab0: Task[];
+  @Input() tab1: Task[];
 
   taskHeadClass = {};
   dataNow: any;
@@ -39,6 +41,7 @@ export class TodoComponent implements OnInit {
 
     // Текущий момент времени
     this.dataNow = +(new Date());
+    
 
   }
 
